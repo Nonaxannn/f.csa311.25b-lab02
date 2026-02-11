@@ -1,19 +1,20 @@
 package edu.cmu.cs.cs214.lab02;
 
-import edu.cmu.cs.cs214.lab02.shapes.*;
+import edu.cmu.cs.cs214.lab02.shapes.Shape;
 
 public class Renderer {
-    public Rectangle rectangle;
+    private final Shape[] shapes;
     
-    Renderer(Rectangle rectangle) {
-        this.rectangle = rectangle;
+    public Renderer(Shape[] shapes) {
+        this.shapes = shapes; // renderer zuvhun rectangle ees hamatai bsn bol odoo shape interface ees hamaatai
     }
 
-    void draw() {
-        double area = rectangle.getArea();
-
-        // assume implementation
-
-        System.out.println("Shape printed\n" + "Its area is " + area);
+    public void draw() {
+        for (Shape shape : shapes) {
+            double area = shape.getArea();
+            System.out.println("Shape printed");
+            System.out.println("Its area is " + area);
+            System.out.println();
+        }
     }
 }
